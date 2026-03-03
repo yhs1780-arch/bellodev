@@ -31,6 +31,11 @@ export const metadata: Metadata = {
       "naver-site-verification": "f60fac5db24461301132398cb3211bb00a8e250b",
     },
   },
+  icons: {
+    icon: "/favicon.png",
+    shortcut: "/favicon.png",
+    apple: "/favicon.png",
+  },
   openGraph: {
     title: "벨로컴퍼니 | 하이엔드 B2B 마케팅 실행사",
     description:
