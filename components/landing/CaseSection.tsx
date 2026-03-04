@@ -39,13 +39,13 @@ export function CaseSection() {
   const [modalCase, setModalCase] = useState<typeof CASES[0] | null>(null);
 
   return (
-    <section id="case-section" className="relative w-full py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-[#0B1120]">
+    <section id="case-section" className="relative w-full py-12 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-[#0B1120]">
       <div className="max-w-6xl mx-auto">
         <motion.h2
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white text-center break-keep mb-6 sm:mb-8"
+          className="text-xl sm:text-2xl lg:text-4xl font-bold text-white text-center break-keep mb-6 sm:mb-8"
         >
           긴말하지 않겠습니다. 단 몇 주 만에 만들어낸 사장님들의 성과입니다.
         </motion.h2>
@@ -54,20 +54,20 @@ export function CaseSection() {
           initial={{ opacity: 0, y: 8 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="grid grid-cols-3 gap-4 sm:gap-6 mb-12 sm:mb-16"
+          className="grid grid-cols-3 gap-2 sm:gap-6 mb-8 sm:mb-16"
         >
           {KPI.map(({ label, value }, i) => (
             <div
               key={i}
-              className="text-center py-4 px-2 rounded-xl bg-white/5 border border-white/10"
+              className="text-center py-3 sm:py-4 px-1 sm:px-2 rounded-lg sm:rounded-xl bg-white/5 border border-white/10"
             >
-              <p className="text-2xl sm:text-3xl font-bold text-[#FFD700]">{value}</p>
-              <p className="text-slate-400 text-sm mt-1 break-keep">{label}</p>
+              <p className="text-lg sm:text-2xl lg:text-3xl font-bold text-[#FFD700] tabular-nums">{value}</p>
+              <p className="text-slate-400 text-xs sm:text-sm mt-0.5 sm:mt-1 break-keep">{label}</p>
             </div>
           ))}
         </motion.div>
 
-        <div className="grid sm:grid-cols-3 gap-4 sm:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-6">
           {CASES.map((c, i) => (
             <motion.button
               key={c.id}
@@ -77,7 +77,7 @@ export function CaseSection() {
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
               onClick={() => setModalCase(c)}
-              className="text-left p-5 sm:p-6 rounded-2xl bg-gradient-to-br from-emerald-500/10 to-transparent border border-emerald-500/20 hover:border-emerald-500/40 transition-all hover:-translate-y-1 hover:shadow-lg hover:shadow-emerald-500/10"
+              className="text-left p-4 sm:p-6 rounded-xl sm:rounded-2xl bg-gradient-to-br from-emerald-500/10 to-transparent border border-emerald-500/20 hover:border-emerald-500/40 transition-all hover:-translate-y-1 hover:shadow-lg hover:shadow-emerald-500/10"
             >
               <div className="flex items-center gap-2 text-emerald-400 mb-3">
                 <TrendingUp className="w-5 h-5" />
@@ -98,11 +98,11 @@ export function CaseSection() {
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-12 sm:mt-16 flex justify-center"
+          className="mt-8 sm:mt-16 flex justify-center"
         >
           <Link
             href="/cases"
-            className="group inline-flex items-center justify-center gap-2 px-8 py-4 sm:px-10 sm:py-5 rounded-2xl border-2 border-[#FFD700] bg-transparent text-[#FFD700] font-bold text-base sm:text-lg hover:bg-[#FFD700]/10 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_30px_-5px_rgba(255,215,0,0.3)] break-keep"
+            className="group inline-flex items-center justify-center gap-2 px-6 py-3.5 sm:px-10 sm:py-5 rounded-xl sm:rounded-2xl border-2 border-[#FFD700] bg-transparent text-[#FFD700] font-bold text-sm sm:text-lg hover:bg-[#FFD700]/10 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_30px_-5px_rgba(255,215,0,0.3)] break-keep"
           >
             <span className="relative">
               벨로컴퍼니의 압도적 성과 사례 30+ 더보기
@@ -126,7 +126,7 @@ export function CaseSection() {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.95, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
-              className="bg-slate-900 border border-white/10 rounded-2xl p-6 sm:p-8 max-w-md w-full shadow-2xl"
+              className="bg-slate-900 border border-white/10 rounded-2xl p-5 sm:p-8 max-w-md w-full shadow-2xl mx-2 max-h-[90vh] overflow-y-auto"
             >
               <div className="flex items-center justify-between mb-4">
                 <h3 className="text-xl font-bold text-white break-keep">{modalCase.name}</h3>

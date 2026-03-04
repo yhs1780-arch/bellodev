@@ -14,18 +14,18 @@ const PAINS = [
 
 export function ProblemSection() {
   return (
-    <section className="relative w-full py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-[#0B1120]">
+    <section className="relative w-full py-12 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-[#0B1120]">
       <div className="max-w-6xl mx-auto">
         <motion.h2
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white text-center break-keep mb-12 sm:mb-14"
+          className="text-xl sm:text-2xl lg:text-4xl font-bold text-white text-center break-keep mb-8 sm:mb-14"
         >
           광고비는 계속 쓰는데, 왜 매출은 그대로일까요?
         </motion.h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-5">
           {PAINS.map(({ emoji, title, text }, i) => (
             <motion.div
               key={i}
@@ -33,7 +33,7 @@ export function ProblemSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.06 }}
-              className="p-5 sm:p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-amber-500/20 transition-colors text-center"
+              className="p-4 sm:p-6 rounded-xl sm:rounded-2xl bg-white/5 border border-white/10 hover:border-amber-500/20 transition-colors text-center"
             >
               <span className="text-2xl sm:text-3xl block mb-3" role="img" aria-hidden>
                 {emoji}

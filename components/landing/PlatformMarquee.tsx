@@ -43,11 +43,10 @@ function MarqueeRow({ items, reverse }: { items: string[]; reverse?: boolean }) 
   return (
     <div className="overflow-hidden marquee-mask">
       <div
-        className={`flex w-max items-center ${reverse ? "animate-marquee-reverse" : "animate-marquee"}`}
-        style={{ gap: "1.5rem" }}
+        className={`flex w-max items-center gap-3 sm:gap-6 ${reverse ? "animate-marquee-reverse" : "animate-marquee"}`}
       >
         {list.map((name, i) => (
-          <span key={i} className="flex-shrink-0 flex items-center gap-[1.5rem] whitespace-nowrap text-lg md:text-xl font-semibold text-slate-400">
+          <span key={i} className="flex-shrink-0 flex items-center gap-3 sm:gap-[1.5rem] whitespace-nowrap text-base sm:text-lg md:text-xl font-semibold text-slate-400">
             <span className={i % 5 === 0 ? "text-[#FFD700]/90" : "text-slate-400"}>{name}</span>
             <span className="text-[#FFD700]/40 select-none">{BULLET}</span>
           </span>
@@ -59,8 +58,8 @@ function MarqueeRow({ items, reverse }: { items: string[]; reverse?: boolean }) 
 
 export function PlatformMarquee() {
   return (
-    <section className="relative w-full py-6 sm:py-8 overflow-hidden bg-[#0B1120] border-y border-white/5">
-      <div className="flex flex-col gap-y-6">
+    <section className="relative w-full py-5 sm:py-8 overflow-hidden bg-[#0B1120] border-y border-white/5">
+      <div className="flex flex-col gap-y-4 sm:gap-y-6">
         <MarqueeRow items={LINE1} />
         <MarqueeRow items={LINE2} reverse />
       </div>

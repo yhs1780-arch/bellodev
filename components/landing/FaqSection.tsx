@@ -27,13 +27,13 @@ export function FaqSection() {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <section className="relative w-full py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-slate-900/40 border-y border-white/5">
+    <section className="relative w-full py-12 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-slate-900/40 border-y border-white/5">
       <div className="max-w-2xl mx-auto">
         <motion.h2
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-2xl sm:text-3xl font-bold text-white text-center break-keep mb-10 sm:mb-12"
+          className="text-xl sm:text-2xl lg:text-3xl font-bold text-white text-center break-keep mb-6 sm:mb-12"
         >
           자주 묻는 질문
         </motion.h2>
@@ -46,7 +46,7 @@ export function FaqSection() {
               <button
                 type="button"
                 onClick={() => setOpen(open === i ? null : i)}
-                className="w-full flex items-center justify-between gap-4 px-5 py-4 text-left text-white font-medium break-keep"
+                className="w-full flex items-center justify-between gap-3 sm:gap-4 px-4 sm:px-5 py-3.5 sm:py-4 text-left text-white font-medium text-sm sm:text-base break-keep"
               >
                 <span>Q. {item.q}</span>
                 <motion.span animate={{ rotate: open === i ? 180 : 0 }} transition={{ duration: 0.2 }}>

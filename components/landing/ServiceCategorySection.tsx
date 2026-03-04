@@ -38,13 +38,13 @@ const SERVICES = [
 
 export function ServiceCategorySection() {
   return (
-    <section id="service-category" className="relative w-full py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-[#0B1120]">
+    <section id="service-category" className="relative w-full py-12 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-[#0B1120]">
       <div className="max-w-6xl mx-auto">
         <motion.h2
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white text-center break-keep mb-4"
+          className="text-xl sm:text-2xl lg:text-4xl font-bold text-white text-center break-keep mb-2 sm:mb-4"
         >
           우리 가게에 꼭 맞는 매체만 골라서 집중 공략합니다.
         </motion.h2>
@@ -52,12 +52,12 @@ export function ServiceCategorySection() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="text-center text-amber-400/90 text-sm sm:text-base mb-12 break-keep"
+          className="text-center text-amber-400/90 text-xs sm:text-base mb-8 sm:mb-12 break-keep"
         >
           무조건 패키지 강요 X, 필요한 채널만 선택 가능
         </motion.p>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-5">
           {SERVICES.map(({ color, label, desc, icon: Icon }, i) => (
             <motion.div
               key={i}
@@ -65,7 +65,7 @@ export function ServiceCategorySection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.06 }}
-              className="p-5 sm:p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-white/20 transition-colors flex items-start gap-4"
+              className="p-4 sm:p-6 rounded-xl sm:rounded-2xl bg-white/5 border border-white/10 hover:border-white/20 transition-colors flex items-start gap-3 sm:gap-4"
             >
               <span className={`flex-shrink-0 w-10 h-10 rounded-xl ${color} flex items-center justify-center`}>
                 <Icon className="w-5 h-5 text-white" />

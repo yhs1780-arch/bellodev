@@ -38,17 +38,17 @@ const REASONS = [
 
 export function SolutionSection() {
   return (
-    <section className="relative w-full py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-slate-900/40 border-y border-white/5">
+    <section className="relative w-full py-12 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-slate-900/40 border-y border-white/5">
       <div className="max-w-6xl mx-auto">
         <motion.h2
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white text-center break-keep mb-12 sm:mb-16"
+          className="text-xl sm:text-2xl lg:text-4xl font-bold text-white text-center break-keep mb-8 sm:mb-16"
         >
           벨로컴퍼니의 &apos;실행 구조&apos;는 시작부터 다릅니다.
         </motion.h2>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
           {REASONS.map(({ icon: Icon, title, desc }, i) => (
             <motion.div
               key={i}
@@ -56,7 +56,7 @@ export function SolutionSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.08 }}
-              className="p-5 sm:p-6 rounded-2xl bg-gradient-to-br from-amber-500/10 to-transparent border border-amber-500/20 hover:border-amber-500/40 transition-colors"
+              className="p-4 sm:p-6 rounded-xl sm:rounded-2xl bg-gradient-to-br from-amber-500/10 to-transparent border border-amber-500/20 hover:border-amber-500/40 transition-colors"
             >
               <div className="w-12 h-12 rounded-xl bg-[#FFD700]/20 flex items-center justify-center mb-4">
                 <Icon className="w-6 h-6 text-[#FFD700]" />

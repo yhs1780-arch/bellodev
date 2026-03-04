@@ -9,12 +9,12 @@ export function TestimonialMarquee() {
   const duplicated = [...list, ...list];
 
   return (
-    <section className="relative w-full py-16 sm:py-20 lg:py-24 overflow-hidden bg-slate-900/40 border-y border-white/5">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-10">
-        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white text-center break-keep">
+    <section className="relative w-full py-12 sm:py-20 lg:py-24 overflow-hidden bg-slate-900/40 border-y border-white/5">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-6 sm:mb-10">
+        <h2 className="text-xl sm:text-2xl lg:text-4xl font-bold text-white text-center break-keep">
           고객 후기
         </h2>
-        <p className="text-slate-400 text-center mt-2 break-keep">
+        <p className="text-slate-400 text-center mt-1 sm:mt-2 text-sm sm:text-base break-keep">
           F&B·뷰티·의료·커머스 등 실제 진행한 고객사가 남긴 후기입니다.
         </p>
       </div>
@@ -24,7 +24,7 @@ export function TestimonialMarquee() {
           {duplicated.map((t, i) => (
             <div
               key={i}
-              className="flex-shrink-0 w-[320px] sm:w-[380px] mx-3 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-5 sm:p-6"
+              className="flex-shrink-0 w-[280px] sm:w-[320px] md:w-[380px] mx-2 sm:mx-3 rounded-xl sm:rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-4 sm:p-6"
             >
               <div className="flex items-center gap-1 mb-3">
                 {[1, 2, 3, 4, 5].map((star) => (

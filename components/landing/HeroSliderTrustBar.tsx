@@ -56,7 +56,7 @@ export function HeroSliderTrustBar() {
   }, []);
 
   return (
-    <section className="relative w-full max-w-full min-h-[100svh] flex flex-col overflow-hidden bg-[#0B1120] pt-16 pb-0">
+    <section className="relative w-full max-w-full min-h-[100dvh] sm:min-h-[100svh] flex flex-col overflow-hidden bg-[#0B1120] pt-14 sm:pt-16 pb-0">
       {/* 배경 슬라이더 + 어두운 오버레이 */}
       <div className="absolute inset-0">
         <AnimatePresence mode="wait">
@@ -77,7 +77,7 @@ export function HeroSliderTrustBar() {
         </AnimatePresence>
       </div>
 
-      <div className="relative z-10 flex-1 flex flex-col items-center justify-center w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center min-w-0 py-12">
+      <div className="relative z-10 flex-1 flex flex-col items-center justify-center w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center min-w-0 py-8 sm:py-12">
         <AnimatePresence mode="wait">
           <motion.div
             key={SLIDES[index].id}
@@ -87,10 +87,10 @@ export function HeroSliderTrustBar() {
             transition={{ duration: 0.45 }}
             className="space-y-4 sm:space-y-6"
           >
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-white break-keep">
+            <h1 className="text-xl min-[380px]:text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-snug sm:leading-tight text-white break-keep px-0">
               {SLIDES[index].h1}
             </h1>
-            <p className="text-base sm:text-lg md:text-xl text-slate-300 break-keep max-w-2xl mx-auto">
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-slate-300 break-keep max-w-2xl mx-auto px-1">
               {SLIDES[index].sub}
             </p>
           </motion.div>
@@ -105,20 +105,20 @@ export function HeroSliderTrustBar() {
         >
           <Link
             href="#consulting-form"
-            className="inline-flex items-center justify-center gap-2 px-6 py-3.5 sm:px-8 sm:py-4 rounded-xl font-semibold text-base sm:text-lg bg-[#FFD700] text-[#0B1120] hover:bg-[#FFE44D] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_30px_-5px_rgba(255,215,0,0.5)] border border-amber-400/30 break-keep"
+            className="inline-flex items-center justify-center gap-2 min-h-[48px] px-6 py-3.5 sm:px-8 sm:py-4 rounded-xl font-semibold text-base sm:text-lg bg-[#FFD700] text-[#0B1120] hover:bg-[#FFE44D] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_30px_-5px_rgba(255,215,0,0.5)] border border-amber-400/30 break-keep"
           >
             무료 진단 받기
             <ArrowRight className="w-5 h-5 shrink-0" />
           </Link>
           <Link
             href="#case-section"
-            className="inline-flex items-center justify-center gap-2 px-6 py-3.5 sm:px-8 sm:py-4 rounded-xl font-semibold text-base bg-white/10 text-white border border-white/20 hover:bg-white/15 transition-all duration-300 break-keep"
+            className="inline-flex items-center justify-center gap-2 min-h-[48px] px-6 py-3.5 sm:px-8 sm:py-4 rounded-xl font-semibold text-base bg-white/10 text-white border border-white/20 hover:bg-white/15 transition-all duration-300 break-keep"
           >
             성과 사례 보기
           </Link>
         </motion.div>
 
-        <div className="absolute bottom-24 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+        <div className="absolute bottom-20 sm:bottom-24 left-1/2 -translate-x-1/2 flex gap-2 z-10">
           {SLIDES.map((_, i) => (
             <button
               key={i}
@@ -135,14 +135,14 @@ export function HeroSliderTrustBar() {
 
       {/* Trust Bar */}
       <div className="relative z-10 w-full border-t border-white/10 bg-black/40 backdrop-blur-sm">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-5 sm:py-6">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
             {TRUST_ITEMS.map(({ icon: Icon, text }, i) => (
-              <div key={i} className="flex items-center justify-center gap-3 text-slate-200">
-                <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-[#FFD700]/15 flex items-center justify-center">
-                  <Icon className="w-5 h-5 text-[#FFD700]" />
+              <div key={i} className="flex items-center justify-center gap-2 sm:gap-3 text-slate-200">
+                <div className="flex-shrink-0 w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-[#FFD700]/15 flex items-center justify-center">
+                  <Icon className="w-4 h-4 sm:w-5 sm:h-5 text-[#FFD700]" />
                 </div>
-                <span className="text-sm sm:text-base font-medium break-keep">{text}</span>
+                <span className="text-xs sm:text-sm md:text-base font-medium break-keep">{text}</span>
               </div>
             ))}
           </div>

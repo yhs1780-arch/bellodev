@@ -49,12 +49,12 @@ function StatCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ delay, duration: 0.5 }}
-      className="rounded-2xl bg-white/5 backdrop-blur-md border border-[#FFD700]/20 p-5 sm:p-6 flex flex-col justify-center"
+      className="rounded-xl sm:rounded-2xl bg-white/5 backdrop-blur-md border border-[#FFD700]/20 p-4 sm:p-6 flex flex-col justify-center"
     >
-      <p className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#FFD700] tabular-nums tracking-tight">
+      <p className="text-xl sm:text-2xl lg:text-4xl font-bold text-[#FFD700] tabular-nums tracking-tight">
         {format(count)}
       </p>
-      <p className="text-slate-400 text-sm mt-2 break-keep">{label}</p>
+      <p className="text-slate-400 text-xs sm:text-sm mt-1 sm:mt-2 break-keep leading-snug">{label}</p>
     </motion.div>
   );
 }
@@ -67,7 +67,7 @@ export function CompanyIntroSection() {
     <section
       id="company-intro"
       ref={ref}
-      className="relative w-full py-20 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 overflow-hidden"
+      className="relative w-full py-14 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 overflow-hidden"
     >
       {/* 배경: 짙은 네이비 + 미세 골드 메쉬/점 패턴 */}
       <div
@@ -84,14 +84,14 @@ export function CompanyIntroSection() {
       <div className="absolute inset-0 opacity-30" style={{ backgroundImage: "radial-gradient(circle, rgba(255,215,0,0.06) 1px, transparent 1px)", backgroundSize: "32px 32px" }} />
 
       <div className="relative z-10 max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* 좌측: 타이틀 및 철학 */}
-          <div className="space-y-6 sm:space-y-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
+          {/* 좌측: 타이틀 및 철학 (모바일에서 먼저 노출) */}
+          <div className="space-y-4 sm:space-y-8 order-2 lg:order-1">
             <motion.h2
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
-              className="text-2xl sm:text-3xl lg:text-4xl xl:text-[2.5rem] font-bold text-white leading-tight break-keep"
+              className="text-xl sm:text-2xl lg:text-4xl xl:text-[2.5rem] font-bold text-white leading-snug sm:leading-tight break-keep"
             >
               우리는 말뿐인 &apos;대행사&apos;가 아니라, 진짜 성과를 만드는 &apos;초대형 실행팀&apos;입니다.
             </motion.h2>
@@ -100,7 +100,7 @@ export function CompanyIntroSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ delay: 0.1 }}
-              className="text-slate-300 text-base sm:text-lg leading-relaxed break-keep"
+              className="text-slate-300 text-sm sm:text-base lg:text-lg leading-relaxed break-keep"
             >
               수많은 대행사들이 결국 벨로컴퍼니를 찾습니다. 하청에 하청을 거치는 거품을 완전히 걷어내고, 사장님과 다이렉트로 만나 가장 합리적인 비용으로 최고의 퍼포먼스를 제공합니다.
             </motion.p>
@@ -115,8 +115,8 @@ export function CompanyIntroSection() {
             </motion.p>
           </div>
 
-          {/* 우측: 2x2 스탯 그리드 */}
-          <div className="grid grid-cols-2 gap-4 sm:gap-5">
+          {/* 우측: 2x2 스탯 그리드 (모바일에서 먼저 노출) */}
+          <div className="grid grid-cols-2 gap-3 sm:gap-5 order-1 lg:order-2">
             {STATS.map((stat, i) => (
               <StatCard
                 key={stat.label}
