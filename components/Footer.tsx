@@ -1,8 +1,20 @@
 "use client";
 
 import Link from "next/link";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { Mail, MapPin, Phone, Building2, User, Hash } from "lucide-react";
 import { BelloLogo } from "./BelloLogo";
+
+/** 사업자등록증 기반 회사 정보 */
+const COMPANY = {
+  name: "벨로컴퍼니",
+  nameEn: "BELLO COMPANY",
+  ceo: "한민영",
+  bizNo: "184-14-01696",
+  address: "전라남도 화순군 동복면 만수동길 58",
+  openDate: "2022년 3월 15일",
+  email: "contact@bellocompany.co.kr",
+  phone: "02-1234-5678",
+};
 
 export function Footer() {
   return (
@@ -13,25 +25,57 @@ export function Footer() {
             <Link href="/" className="inline-block mb-6">
               <BelloLogo />
             </Link>
-            <p className="text-slate-400 text-sm leading-relaxed max-w-md mb-8 break-keep">
+            <p className="text-slate-400 text-sm leading-relaxed max-w-md mb-6 break-keep">
               데이터로 증명하는 압도적 실행력. 기획부터 실행까지 빈틈없는 다이렉트 솔루션, BELLO.
             </p>
-            <div className="flex flex-col gap-3 text-sm text-slate-400">
-              <a href="mailto:contact@bellocompany.co.kr" className="flex items-center gap-2 hover:text-[#FFD700] transition-colors break-keep">
+            <dl className="flex flex-col gap-2 text-sm text-slate-400">
+              <div className="flex items-start gap-2">
+                <Building2 className="w-4 h-4 shrink-0 mt-0.5 text-[#FFD700]/70" />
+                <div>
+                  <dt className="sr-only">상호</dt>
+                  <dd className="font-medium text-slate-300">{COMPANY.name} (BELLO COMPANY)</dd>
+                </div>
+              </div>
+              <div className="flex items-start gap-2">
+                <User className="w-4 h-4 shrink-0 mt-0.5 text-[#FFD700]/70" />
+                <div>
+                  <dt className="sr-only">대표</dt>
+                  <dd>대표이사 {COMPANY.ceo}</dd>
+                </div>
+              </div>
+              <div className="flex items-start gap-2">
+                <Hash className="w-4 h-4 shrink-0 mt-0.5 text-[#FFD700]/70" />
+                <div>
+                  <dt className="sr-only">사업자등록번호</dt>
+                  <dd>사업자등록번호 {COMPANY.bizNo}</dd>
+                </div>
+              </div>
+              <div className="flex items-start gap-2">
+                <MapPin className="w-4 h-4 shrink-0 mt-0.5 text-[#FFD700]/70" />
+                <div>
+                  <dt className="sr-only">사업장 소재지</dt>
+                  <dd className="break-keep">{COMPANY.address}</dd>
+                </div>
+              </div>
+              <div className="flex items-center gap-2 text-slate-500 text-xs">
+                <span>개업 {COMPANY.openDate}</span>
+                <span className="text-slate-600">·</span>
+                <span>광고 대행업</span>
+              </div>
+            </dl>
+            <div className="flex flex-col gap-3 text-sm text-slate-400 mt-6">
+              <a href={`mailto:${COMPANY.email}`} className="flex items-center gap-2 hover:text-[#FFD700] transition-colors break-keep">
                 <Mail className="w-4 h-4 shrink-0" />
-                contact@bellocompany.co.kr
+                {COMPANY.email}
               </a>
-              <a href="tel:02-1234-5678" className="flex items-center gap-2 hover:text-[#FFD700] transition-colors break-keep">
+              <a href={`tel:${COMPANY.phone.replace(/-/g, "")}`} className="flex items-center gap-2 hover:text-[#FFD700] transition-colors break-keep">
                 <Phone className="w-4 h-4 shrink-0" />
-                02-1234-5678
+                {COMPANY.phone}
               </a>
-              <span className="flex items-center gap-2 break-keep">
-                <MapPin className="w-4 h-4 shrink-0" />
-                서울시 강남구 테헤란로 123
-              </span>
             </div>
           </div>
           <div className="flex flex-col justify-center gap-4">
+            <p className="text-slate-500 text-xs font-medium uppercase tracking-wider mb-1">서비스</p>
             <Link href="/beauty" className="text-sm text-slate-400 hover:text-[#FFD700] transition-colors break-keep">
               뷰티/의료
             </Link>
@@ -40,6 +84,9 @@ export function Footer() {
             </Link>
             <Link href="/commerce" className="text-sm text-slate-400 hover:text-[#FFD700] transition-colors break-keep">
               커머스/온라인
+            </Link>
+            <Link href="/cases" className="text-sm text-slate-400 hover:text-[#FFD700] transition-colors break-keep">
+              성과 사례 30+
             </Link>
           </div>
         </div>
@@ -52,9 +99,8 @@ export function Footer() {
             개인정보처리방침
           </Link>
         </div>
-        <p className="text-xs text-slate-500 mt-4 break-keep">
-          © {new Date().getFullYear()}{" "}
-          <span className="whitespace-nowrap">벨로컴퍼니</span>. All rights reserved.
+        <p className="text-xs text-slate-500 mt-4 text-center break-keep">
+          © {new Date().getFullYear()} {COMPANY.name} ({COMPANY.nameEn}). All rights reserved.
         </p>
       </div>
     </footer>

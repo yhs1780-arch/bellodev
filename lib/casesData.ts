@@ -37,7 +37,7 @@ export const casesData: SuccessCaseItem[] = [
     title: "동네 골목 미용실, 당근 지역 광고로 신규 단골 300명 확보",
     metrics: "당근 단골 맺기 500% 폭증",
     desc: "단순 할인이 아닌 '원장님의 헤어 철학'을 담은 동네소식 발행과 지역 타겟팅 광고로 맘카페 입소문까지 연결.",
-    image: "https://images.unsplash.com/photo-1560066984-1383b3fdfa9a?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=800&q=80",
   },
   {
     id: 3,
@@ -57,7 +57,7 @@ export const casesData: SuccessCaseItem[] = [
     title: "성수동 팝업스토어, 릴스 바이럴로 주말 대기 2천 명 돌파",
     metrics: "조회수 150만, 웨이팅 3시간",
     desc: "비주얼을 극대화한 숏폼 템플릿 기획 및 마이크로 인플루언서 동시 다발적 업로드로 2030 핫플 등극.",
-    image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1615529328331-f8917597711f?w=800&q=80",
   },
   {
     id: 5,
@@ -77,7 +77,7 @@ export const casesData: SuccessCaseItem[] = [
     title: "판교 정형외과, 개원 1달 만에 초진 환자 예약 마감",
     metrics: "지역 의료 키워드 상위 노출",
     desc: "공장형 원고가 아닌, 환자들의 통증 키워드(Pain Point)를 분석한 전문성 있는 질환 정보 포스팅 발행.",
-    image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1581595220892-b0739db3ba8c?w=800&q=80",
   },
   {
     id: 7,
