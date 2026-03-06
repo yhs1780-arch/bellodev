@@ -26,6 +26,7 @@ function stripLeadingEmoji(text: string): string {
 }
 
 const VISIBLE_DURATION_MS = 4500;
+const FIRST_SHOW_DELAY_MS = 2500; // 첫 알림은 2.5초 후 표시 (바로 보이도록)
 const MIN_INTERVAL_MS = 5000;
 const MAX_INTERVAL_MS = 30000;
 
@@ -56,8 +57,8 @@ export function LiveToast() {
   }, []);
 
   useEffect(() => {
-    const scheduleNext = () => {
-      const delayMs = getRandomDelayMs();
+    const scheduleNext = (useShortDelay = false) => {
+      const delayMs = useShortDelay ? FIRST_SHOW_DELAY_MS : getRandomDelayMs();
       showTimerRef.current = setTimeout(() => {
         const next = pickNextMessage();
         if (next) {
@@ -66,12 +67,12 @@ export function LiveToast() {
         }
         hideTimerRef.current = setTimeout(() => {
           setVisible(false);
-          scheduleNext();
+          scheduleNext(false);
         }, VISIBLE_DURATION_MS);
       }, delayMs);
     };
 
-    const firstDelayMs = getRandomDelayMs();
+    // 첫 알림은 2.5초 후에 표시 (이후에는 5~30초 간격)
     showTimerRef.current = setTimeout(() => {
       const next = pickNextMessage();
       if (next) {
@@ -80,9 +81,9 @@ export function LiveToast() {
       }
       hideTimerRef.current = setTimeout(() => {
         setVisible(false);
-        scheduleNext();
+        scheduleNext(false);
       }, VISIBLE_DURATION_MS);
-    }, firstDelayMs);
+    }, FIRST_SHOW_DELAY_MS);
 
     return () => {
       if (showTimerRef.current) clearTimeout(showTimerRef.current);
@@ -92,7 +93,7 @@ export function LiveToast() {
 
   return (
     <div
-      className="fixed top-20 right-4 z-[100] pointer-events-none sm:top-24 sm:right-6"
+      className="fixed top-20 right-4 z-[150] pointer-events-none sm:top-24 sm:right-6"
       aria-live="polite"
       aria-atomic="true"
     >
