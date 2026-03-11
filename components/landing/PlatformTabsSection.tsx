@@ -251,38 +251,50 @@ export function PlatformTabsSection() {
                   )}
 
                   {activeId === "insta" && (
-                    <div className="flex flex-col sm:flex-row gap-4 items-start justify-center">
-                      <div className="w-[200px] h-[380px] rounded-[28px] bg-black border-[3px] border-[#333] overflow-hidden shrink-0 mx-auto sm:mx-0">
-                        <div className="w-2.5 h-2.5 rounded-full bg-[#333] mx-auto mt-2" />
-                        <div className="relative w-full h-[calc(100%-20px)] mt-1">
-                          <Img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400&q=80" alt="" fill className="object-cover" />
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-                          <div className="absolute bottom-14 left-3 text-white">
-                            <p className="font-bold text-sm">@bello_client</p>
-                            <p className="text-xs mt-0.5">#강남맛집 #서울데이트</p>
+                    <div className="flex flex-col lg:flex-row gap-6 items-start w-full max-w-2xl lg:max-w-none">
+                      {/* 인스타 피드 목업: 3개 게시물 그리드 */}
+                      <div className="bg-black rounded-[20px] overflow-hidden w-full flex-1 min-w-0" style={{ boxShadow: "0 25px 60px rgba(0,0,0,0.7)" }}>
+                        <div className="flex items-center gap-3 px-4 py-2.5" style={{ padding: "10px 16px" }}>
+                          <div className="w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0 text-sm" style={{ background: "linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888)" }}>
+                            📷
                           </div>
-                          <div className="absolute right-2 top-1/2 -translate-y-1/2 flex flex-col gap-3 text-white text-xs text-center">
-                            <span>❤️<br />4.2만</span>
-                            <span>💬<br />1,847</span>
-                            <span>➤<br />9,300</span>
+                          <span className="text-white font-semibold text-sm">Instagram</span>
+                          <span className="ml-auto text-[12px] text-gray-400">팔로워 18,400명</span>
+                        </div>
+                        <div className="grid grid-cols-2 gap-0">
+                          <div className="col-span-2 relative h-[260px] bg-gray-900">
+                            <Img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=80" alt="" fill className="object-cover" />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+                            <span className="absolute top-2.5 right-2.5 text-white text-xs rounded px-2 py-0.5" style={{ background: "rgba(0,0,0,0.6)", padding: "3px 8px" }}>
+                              ▶ 릴스
+                            </span>
+                            <div className="absolute bottom-0 left-0 right-0 p-3 flex items-end justify-between">
+                              <div>
+                                <p className="text-white font-bold text-sm">@bello_client</p>
+                                <p className="text-white text-xs mt-0.5">#강남맛집 #서울데이트 #맛집추천</p>
+                              </div>
+                              <div className="text-white text-right text-[13px] flex flex-col gap-1">
+                                <span>❤️ 4.2만</span>
+                                <span>💬 1,847</span>
+                              </div>
+                            </div>
                           </div>
-                          <div className="absolute bottom-2 left-[20%] right-[20%] h-0.5 bg-white/60 rounded" />
+                          <div className="relative h-[140px] bg-gray-800">
+                            <Img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400&q=80" alt="" fill className="object-cover" />
+                            <div className="absolute bottom-0 left-0 right-0 p-2 bg-black/50 text-white text-xs">❤️ 2.1만</div>
+                          </div>
+                          <div className="relative h-[140px] bg-gray-800">
+                            <Img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&q=80" alt="" fill className="object-cover" />
+                            <div className="absolute bottom-0 left-0 right-0 p-2 bg-black/50 text-white text-xs">❤️ 1.8만</div>
+                          </div>
+                        </div>
+                        <div className="flex justify-between items-center px-4 py-3" style={{ background: "#111", padding: "12px 16px" }}>
+                          <span className="font-extrabold text-[#FFD600]">조회수 127만</span>
+                          <span className="font-bold text-[#4ADE80]">DM 예약 +284건</span>
+                          <span className="text-white">팔로워 +17,200</span>
                         </div>
                       </div>
-                      <div className="rounded-2xl p-5 min-w-0 flex-1 max-w-xs w-full" style={{ backgroundColor: "#131929" }}>
-                        <p className="text-xs text-[#9CA3AF] mb-1">게시 후 72시간</p>
-                        <p className="text-[28px] font-extrabold text-[#FFD600]">조회수 127만</p>
-                        <div className="border-t border-white/10 my-3" />
-                        <div className="h-15 flex items-end gap-0.5">
-                          {[25, 45, 40, 65, 85, 100].map((h, i) => (
-                            <div key={i} className="flex-1 rounded-t bg-[#4ADE80]" style={{ height: `${h}%` }} />
-                          ))}
-                        </div>
-                        <p className="text-sm text-[#4ADE80] mt-1">팔로워 +17,200명</p>
-                        <div className="border-t border-white/10 my-3" />
-                        <p className="text-sm text-[#9CA3AF]">DM 예약 문의</p>
-                        <p className="text-xl font-bold text-white">+284건</p>
-                      </div>
+                      {/* 우측 Before/After는 상위 레이아웃에서 공통 렌더링 */}
                     </div>
                   )}
 
