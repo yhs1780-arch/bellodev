@@ -10,23 +10,24 @@ const STATS = [
   { end: 3, suffix: "개 지사", label: "서울·전북·전남 지사" },
 ];
 
-function useCountUp(end: number, once: boolean, duration = 2000) {
+function useCountUp(end: number, inView: boolean, duration = 2000) {
   const [value, setValue] = useState(0);
-  const [done, setDone] = useState(false);
+  const [hasAnimated, setHasAnimated] = useState(false);
   useEffect(() => {
-    if (!once || done) return;
-    setDone(true);
+    if (!inView || hasAnimated) return;
     const startTime = Date.now();
+    let rafId: number;
     const tick = () => {
       const elapsed = Date.now() - startTime;
       const progress = Math.min(elapsed / duration, 1);
       const easeOut = 1 - Math.pow(1 - progress, 3);
       setValue(Math.round(end * easeOut));
-      if (progress < 1) requestAnimationFrame(tick);
+      if (progress >= 1) setHasAnimated(true);
+      else rafId = requestAnimationFrame(tick);
     };
-    const id = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(id);
-  }, [end, once, duration, done]);
+    rafId = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(rafId);
+  }, [end, inView, duration, hasAnimated]);
   return value;
 }
 

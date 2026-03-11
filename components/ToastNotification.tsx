@@ -58,7 +58,7 @@ export function ToastNotification() {
             </div>
             <div className="min-w-0 flex-1">
               <p className="font-bold mb-1" style={{ fontSize: 11, color: "#FFD600" }}>
-                방금 신규 상담 신청
+                신규 상담 신청
               </p>
               <p className="leading-snug" style={{ fontSize: 13, color: "#E5E7EB", lineHeight: 1.5 }}>
                 {MESSAGES[index]}
