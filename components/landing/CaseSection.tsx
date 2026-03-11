@@ -1,151 +1,90 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
-import { TrendingUp, X, ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
 
 const KPI = [
-  { label: "누적 캠페인", value: "10,000+" },
-  { label: "평균 매출 상승", value: "280%" },
-  { label: "재계약률", value: "97%" },
+  { value: "10,000+", label: "누적 캠페인", sub: "실패 데이터도 반영" },
+  { value: "280%", label: "평균 매출 상승", sub: "단순 노출이 아닌 매출 기준" },
+  { value: "97%", label: "재계약률", sub: "성과 없으면 재계약도 없습니다" },
 ];
 
 const CASES = [
-  {
-    id: 1,
-    name: "OO한의원",
-    main: "22위 → 12위 수직 상승 (진행 4주 차)",
-    sub: "길찾기 및 전화 문의 대폭 상승",
-    detail: "한의원 특성에 맞춰 네이버 플레이스 키워드와 메뉴 구성부터 손봤습니다. 4주 만에 순위가 크게 올라 길찾기·전화 문의가 눈에 띄게 늘었습니다.",
-  },
-  {
-    id: 2,
-    name: "OO치과",
-    main: "11위 → 5위 쾌속 달성 (진행 3주 차)",
-    sub: "네이버 예약률 급증",
-    detail: "예약 버튼 노출과 리뷰 관리에 집중한 결과, 3주 만에 상위권 진입과 함께 네이버 예약 문의가 크게 증가했습니다.",
-  },
-  {
-    id: 3,
-    name: "OO헬스장",
-    main: "14위 → 8위 안전하게 안착 (진행 5주 차)",
-    sub: "동네 노출 및 방문 상담 증가",
-    detail: "지역 검색어와 사진·운영 팀이 협업해 동네에서 우리 헬스장이 더 잘 보이도록 세팅했습니다. 방문 상담이 늘어났습니다.",
-  },
+  { name: "OO 한의원", period: "4주차", rank: "22위 → 12위", result: "길찾기·전화 문의 대폭 상승" },
+  { name: "OO 치과", period: "3주차", rank: "11위 → 5위", result: "네이버 예약률 급증" },
+  { name: "OO 헬스장", period: "5주차", rank: "14위 → 8위", result: "동네 노출 및 방문 상담 증가" },
 ];
 
 export function CaseSection() {
-  const [modalCase, setModalCase] = useState<typeof CASES[0] | null>(null);
-
   return (
-    <section id="case-section" className="relative w-full py-10 sm:py-20 lg:py-24 px-3 sm:px-6 lg:px-8 bg-[#0B1120] overflow-hidden">
-      <div className="max-w-6xl mx-auto min-w-0">
+    <section id="case-section" className="relative w-full py-16 sm:py-24 px-4 sm:px-6 lg:px-8 overflow-hidden" style={{ backgroundColor: "#0B0F1A" }}>
+      <div className="max-w-6xl mx-auto">
         <motion.h2
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-xl sm:text-2xl lg:text-4xl font-bold text-white text-center break-keep mb-6 sm:mb-8"
+          className="text-xl sm:text-2xl lg:text-4xl font-bold text-white text-center break-keep mb-2"
         >
-          긴말하지 않겠습니다. 단 몇 주 만에 만들어낸 사장님들의 성과입니다.
+          긴말 않겠습니다. 단 몇 주 만에 만든 성과입니다
         </motion.h2>
-
-        <motion.div
-          initial={{ opacity: 0, y: 8 }}
-          whileInView={{ opacity: 1, y: 0 }}
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="grid grid-cols-3 gap-2 sm:gap-6 mb-8 sm:mb-16"
+          className="text-slate-400 text-center text-sm sm:text-base mb-10 break-keep"
         >
-          {KPI.map(({ label, value }, i) => (
-            <div
-              key={i}
-              className="text-center py-3 sm:py-4 px-1 sm:px-2 rounded-lg sm:rounded-xl bg-white/5 border border-white/10"
-            >
-              <p className="text-lg sm:text-2xl lg:text-3xl font-bold text-[#FFD700] tabular-nums">{value}</p>
-              <p className="text-slate-400 text-xs sm:text-sm mt-0.5 sm:mt-1 break-keep">{label}</p>
-            </div>
-          ))}
-        </motion.div>
+          상세 캡처 자료는 상담 시 투명하게 공개드립니다
+        </motion.p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mb-12">
+          {KPI.map(({ value, label, sub }, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 8 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-center py-4 px-4 rounded-xl bg-white/5 border border-white/10"
+            >
+              <p className="text-xl sm:text-2xl font-bold text-[#FFD700]">{value}</p>
+              <p className="text-slate-300 text-sm font-medium mt-0.5">{label}</p>
+              <p className="text-slate-500 text-xs mt-1">{sub}</p>
+            </motion.div>
+          ))}
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
           {CASES.map((c, i) => (
-            <motion.button
-              key={c.id}
-              type="button"
+            <motion.div
+              key={c.name}
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              onClick={() => setModalCase(c)}
-              className="text-left p-4 sm:p-6 rounded-xl sm:rounded-2xl bg-gradient-to-br from-emerald-500/10 to-transparent border border-emerald-500/20 hover:border-emerald-500/40 transition-all hover:-translate-y-1 hover:shadow-lg hover:shadow-emerald-500/10"
+              className="p-5 sm:p-6 rounded-xl bg-white/5 border border-white/10 hover:border-[#FFD600]/30 transition-colors"
             >
-              <div className="flex items-center gap-2 text-emerald-400 mb-3">
-                <TrendingUp className="w-5 h-5" />
-                <span className="font-semibold text-white">{c.name}</span>
-              </div>
-              <p className="text-white font-medium text-sm sm:text-base mb-1 break-keep">{c.main}</p>
-              <p className="text-slate-400 text-sm break-keep">{c.sub}</p>
-              <p className="text-slate-500 text-xs mt-3 break-keep">클릭하면 상세 보기</p>
-            </motion.button>
+              <span className="inline-block px-2.5 py-0.5 rounded-full text-xs font-medium text-emerald-400 bg-emerald-500/20 mb-3">
+                업종
+              </span>
+              <h3 className="text-white font-bold text-lg">{c.name}</h3>
+              <p className="text-slate-400 text-sm mt-1">진행 기간: {c.period}</p>
+              <p className="text-white font-semibold mt-2">
+                순위 변화: <span className="text-[#FFD600]">{c.rank}</span>
+              </p>
+              <p className="text-slate-300 text-sm mt-1">{c.result}</p>
+              <p className="text-[#FFD600] text-sm font-medium mt-4">상세 보기 →</p>
+            </motion.div>
           ))}
         </div>
 
-        <p className="text-center text-slate-500 text-sm mt-8 sm:mt-10 break-keep">
-          ※ 상세한 성과 캡처 화면 및 전후 비교 자료는 상담 시 투명하게 공개해 드립니다.
-        </p>
-
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mt-8 sm:mt-16 flex justify-center"
-        >
+        <div className="text-center mt-10">
           <Link
             href="/cases"
-            className="group inline-flex items-center justify-center gap-2 px-6 py-3.5 sm:px-10 sm:py-5 rounded-xl sm:rounded-2xl border-2 border-[#FFD700] bg-transparent text-[#FFD700] font-bold text-sm sm:text-lg hover:bg-[#FFD700]/10 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_30px_-5px_rgba(255,215,0,0.3)] break-keep"
+            className="text-[#FFD600] font-semibold hover:underline break-keep"
           >
-            <span className="relative">
-              벨로컴퍼니의 압도적 성과 사례 30+ 더보기
-            </span>
-            <ArrowRight className="w-5 h-5 shrink-0 group-hover:translate-x-1 transition-transform" />
+            벨로컴퍼니의 압도적 성과 사례 30+ 더보기 →
           </Link>
-        </motion.div>
+        </div>
       </div>
-
-      <AnimatePresence>
-        {modalCase && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm"
-            onClick={() => setModalCase(null)}
-          >
-            <motion.div
-              initial={{ scale: 0.95, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.95, opacity: 0 }}
-              onClick={(e) => e.stopPropagation()}
-              className="bg-slate-900 border border-white/10 rounded-2xl p-5 sm:p-8 max-w-md w-full shadow-2xl mx-2 max-h-[90vh] overflow-y-auto"
-            >
-              <div className="flex items-center justify-between mb-4">
-                <h3 className="text-xl font-bold text-white break-keep">{modalCase.name}</h3>
-                <button
-                  type="button"
-                  onClick={() => setModalCase(null)}
-                  className="p-2 rounded-lg hover:bg-white/10 text-slate-400 hover:text-white transition"
-                  aria-label="닫기"
-                >
-                  <X className="w-5 h-5" />
-                </button>
-              </div>
-              <p className="text-[#FFD700] font-medium mb-2 break-keep">{modalCase.main}</p>
-              <p className="text-slate-400 text-sm mb-4 break-keep">{modalCase.sub}</p>
-              <p className="text-slate-300 text-sm leading-relaxed break-keep">{modalCase.detail}</p>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </section>
   );
 }

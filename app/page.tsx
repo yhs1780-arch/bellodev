@@ -1,39 +1,39 @@
 "use client";
 
-import { HeroSliderTrustBar } from "@/components/landing/HeroSliderTrustBar";
-import { MediaExposureBanner } from "@/components/landing/MediaExposureBanner";
-import { PlatformMarquee } from "@/components/landing/PlatformMarquee";
-import { ProblemSection } from "@/components/landing/ProblemSection";
+import { Nav } from "@/components/landing/Nav";
+import { HeroSection } from "@/components/landing/HeroSection";
+import { TrustStatsBar } from "@/components/landing/TrustStatsBar";
+import { PainSection } from "@/components/landing/PainSection";
 import { SolutionSection } from "@/components/landing/SolutionSection";
 import { CaseSection } from "@/components/landing/CaseSection";
-import { PlatformStrategySection } from "@/components/landing/PlatformStrategySection";
 import { IndustryChannelSection } from "@/components/landing/IndustryChannelSection";
-import { UnifiedCTASection } from "@/components/landing/UnifiedCTASection";
-import { ProcessSection } from "@/components/landing/ProcessSection";
-import { TestimonialMarquee } from "@/components/TestimonialMarquee";
+import { PlatformTabsSection } from "@/components/landing/PlatformTabsSection";
+import { TimelineSection } from "@/components/landing/TimelineSection";
+import { TestimonialsSection } from "@/components/landing/TestimonialsSection";
 import { ConsultingForm } from "@/components/ConsultingForm";
 import { FaqSection } from "@/components/landing/FaqSection";
-import { ComparisonSection } from "@/components/landing/ComparisonSection";
 import { CompanyIntroSection } from "@/components/landing/CompanyIntroSection";
+import { MobileCtaBar } from "@/components/MobileCtaBar";
+import { ToastNotification } from "@/components/ToastNotification";
 
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-[#0B0F1A] overflow-x-hidden max-w-full w-full min-w-0">
-      <HeroSliderTrustBar />
-      <MediaExposureBanner />
-      <PlatformMarquee />
-      <ProblemSection />
+      <Nav />
+      <HeroSection />
+      <TrustStatsBar />
+      <PainSection />
       <SolutionSection />
       <CaseSection />
-      <PlatformStrategySection />
       <IndustryChannelSection />
-      <UnifiedCTASection />
-      <ProcessSection />
-      <TestimonialMarquee />
+      <PlatformTabsSection />
+      <TimelineSection />
+      <TestimonialsSection />
       <ConsultingForm />
-      <ComparisonSection />
       <FaqSection />
       <CompanyIntroSection />
+      <MobileCtaBar />
+      <ToastNotification />
     </div>
   );
 }

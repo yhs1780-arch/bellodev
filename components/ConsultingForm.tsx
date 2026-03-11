@@ -83,12 +83,13 @@ export function ConsultingForm() {
                   30만 원 상당의 &apos;우리 가게 맞춤 노출 전략&apos;을 드립니다.
                 </h2>
                 <p className="text-slate-300 text-xs sm:text-sm lg:text-base leading-relaxed space-y-1 break-keep">
-                  · 우리 가게가 인터넷에서 안 보이는 이유 진단
+                  ✅ 우리 가게가 안 보이는 이유 진단
                   <br />
-                  · 손님들이 먼저 찾게 만드는 노하우
+                  ✅ 손님들이 먼저 찾게 만드는 노하우
                   <br />
-                  · 매출 상승 체크리스트 무료 제공
+                  ✅ 매출 상승 체크리스트 무료 제공
                 </p>
+                <p className="text-slate-500 text-xs mt-4 break-keep">⚡ 월 선착순 15개 업체 한정</p>
               </div>
               <div className="order-1 lg:order-2">
             {submitted ? (
@@ -107,7 +108,7 @@ export function ConsultingForm() {
                     required
                     value={formData.name}
                     onChange={(e) => setFormData((p) => ({ ...p, name: e.target.value }))}
-                    className="w-full min-h-[48px] px-4 py-3 sm:py-3.5 rounded-xl bg-white/5 border border-white/10 text-slate-100 text-base placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition break-keep"
+                    className="w-full h-[52px] px-4 rounded-xl text-slate-100 text-base placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-[#FFD600]/50 focus:border-[#FFD600] transition break-keep border border-[#333] bg-[#131929]"
                     placeholder="홍길동"
                   />
                 </div>
@@ -121,7 +122,7 @@ export function ConsultingForm() {
                     required
                     value={formData.contact}
                     onChange={(e) => setFormData((p) => ({ ...p, contact: e.target.value }))}
-                    className="w-full min-h-[48px] px-4 py-3 sm:py-3.5 rounded-xl bg-white/5 border border-white/10 text-slate-100 text-base placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition break-keep"
+                    className="w-full h-[52px] px-4 rounded-xl text-slate-100 text-base placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-[#FFD600]/50 focus:border-[#FFD600] transition break-keep border border-[#333] bg-[#131929]"
                     placeholder="010-0000-0000"
                   />
                 </div>
@@ -132,7 +133,7 @@ export function ConsultingForm() {
                     name="이메일"
                     value={formData.email}
                     onChange={(e) => setFormData((p) => ({ ...p, email: e.target.value }))}
-                    className="w-full min-h-[48px] px-4 py-3 sm:py-3.5 rounded-xl bg-white/5 border border-white/10 text-slate-100 text-base placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition break-keep"
+                    className="w-full h-[52px] px-4 rounded-xl text-slate-100 text-base placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-[#FFD600]/50 focus:border-[#FFD600] transition break-keep border border-[#333] bg-[#131929]"
                     placeholder="example@email.com"
                   />
                 </div>
@@ -143,7 +144,7 @@ export function ConsultingForm() {
                     name="업체명"
                     value={formData.company}
                     onChange={(e) => setFormData((p) => ({ ...p, company: e.target.value }))}
-                    className="w-full min-h-[48px] px-4 py-3 sm:py-3.5 rounded-xl bg-white/5 border border-white/10 text-slate-100 text-base placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition break-keep"
+                    className="w-full h-[52px] px-4 rounded-xl text-slate-100 text-base placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-[#FFD600]/50 focus:border-[#FFD600] transition break-keep border border-[#333] bg-[#131929]"
                     placeholder="ex. 벨로 식당/의원"
                   />
                 </div>
@@ -156,7 +157,7 @@ export function ConsultingForm() {
                     rows={4}
                     value={formData.concern}
                     onChange={(e) => setFormData((p) => ({ ...p, concern: e.target.value }))}
-                    className="w-full px-4 py-3.5 rounded-xl bg-white/5 border border-white/10 text-slate-100 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition resize-none break-keep"
+                    className="w-full px-4 py-3.5 rounded-xl border border-[#333] bg-[#131929] text-slate-100 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-[#FFD600]/50 focus:border-[#FFD600] transition resize-none break-keep"
                     placeholder="마케팅 목표, 예산, 현재 노출·매출 상태 등을 간단히 적어 주세요."
                   />
                 </div>
@@ -185,7 +186,7 @@ export function ConsultingForm() {
                 <button
                   type="submit"
                   disabled={!privacyAgree || submitting}
-                  className="w-full inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-[#FFD700] text-[#0B1120] font-semibold hover:bg-[#FFE44D] hover:-translate-y-0.5 hover:shadow-[0_0_30px_-5px_rgba(255,215,0,0.5)] transition-all duration-300 border border-amber-400/30 disabled:opacity-50 disabled:pointer-events-none disabled:transform-none"
+                  className="w-full inline-flex items-center justify-center gap-2 h-12 px-6 rounded-xl bg-[#FFD700] text-[#0B1120] font-semibold hover:bg-[#FFE44D] transition-all duration-300 border border-amber-400/30 disabled:opacity-50 disabled:pointer-events-none"
                 >
                   {submitting ? (
                     <>

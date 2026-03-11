@@ -1,12 +1,6 @@
 import type { Metadata } from "next";
 import { ThemeProvider } from "@/components/ThemeProvider";
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
-import { FloatingRight } from "@/components/FloatingRight";
-import { LiveToast } from "@/components/LiveToast";
-import { AwardPopup } from "@/components/AwardPopup";
-import { FloatingStatusBar } from "@/components/FloatingStatusBar";
-import { MobileBottomCta } from "@/components/MobileBottomCta";
+import { ConditionalLayout } from "@/components/ConditionalLayout";
 import { getSiteUrl, isProductionSite } from "@/app/lib/site";
 import "./globals.css";
 
@@ -82,14 +76,7 @@ export default function RootLayout({
     <html lang="ko" className="dark overflow-x-hidden" suppressHydrationWarning>
       <body className="min-h-screen bg-[#0B1120] text-slate-100 font-sans antialiased overflow-x-hidden max-w-[100vw]">
         <ThemeProvider>
-          <Header />
-          <main className="relative overflow-x-hidden max-w-full min-w-0 pb-[max(5rem,env(safe-area-inset-bottom))] sm:pb-0">{children}</main>
-          <Footer />
-          <FloatingRight />
-          <MobileBottomCta />
-          <LiveToast />
-          <FloatingStatusBar />
-          <AwardPopup />
+          <ConditionalLayout>{children}</ConditionalLayout>
         </ThemeProvider>
       </body>
     </html>
